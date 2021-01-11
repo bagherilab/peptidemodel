@@ -1,0 +1,12 @@
+#!/bin/bash
+#MSUB -M jessicayu2014@u.northwestern.edu
+#MSUB -o /home/jsy331/Matlab/logs/runR_${MOAB_JOBARRAYINDEX}.log
+#MSUB -l walltime=01:00:00
+#MSUB -l nodes=1:ppn=1
+#MSUB -j oe
+#MSUB -m bae
+
+cd $PBS_O_WORKDIR
+module load matlab
+matlab -nodisplay -nosplash -r "PM_TASKS_Run_HPC(2, $MOAB_JOBARRAYINDEX)"
+
